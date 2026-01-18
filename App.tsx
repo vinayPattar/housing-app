@@ -9,6 +9,8 @@ import Browse from './pages/Browse';
 import ListingDetails from './pages/ListingDetails';
 import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import { AuthState, User } from './types';
 
 const App: React.FC = () => {
@@ -37,6 +39,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/browse" element={<Browse />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/listing/:id" element={<ListingDetails />} />
             <Route 
               path="/login" 

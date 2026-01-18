@@ -6,6 +6,7 @@ import { listingApi } from '../api';
 import ListingCard from '../components/ListingCard';
 import { Button, Input, Select, Badge } from '../components/UI';
 import { Property } from '../types';
+import { MOCK_PROPERTIES } from '../constants';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -33,9 +34,14 @@ const Home: React.FC = () => {
           type: 'Residential'
         }));
 
-        setListings(mappedListings);
+        if (mappedListings.length > 0) {
+          setListings(mappedListings);
+        } else {
+          setListings(MOCK_PROPERTIES.slice(0, 3));
+        }
       } catch (error) {
         console.error("Error fetching listings:", error);
+        setListings(MOCK_PROPERTIES.slice(0, 3));
       } finally {
         setLoading(false);
       }
